@@ -1,51 +1,21 @@
 # liquid-types.vim
 
-Vim support for Liquid Typing
+This is a fork of the [original] which has been rearranged to hopefully Just
+Work with plugin managers without any manual installation.
 
-+ [LiquidHaskell](https://github.com/ucsd-progsys/liquidhaskell)
+[original]: https://github.com/ucsd-progsys/liquid-types.vim
 
-## Install
-
-**Step 1.** Add the following to your `.vimrc`
-
-~~~~~
-Bundle 'scrooloose/syntastic'
-Bundle 'panagosg7/vim-annotations'
-let g:vim_annotations_offset = '/.liquid/'
-~~~~~
-
-**Step 2.** Copy the following files
-
-~~~~~
-cp syntax/haskell.vim ~/.vimrc/syntax/haskell.vim
-cp syntax/liquid.vim  ~/.vimrc/bundle/syntastic/syntax_checkers/haskell/liquid.vim
-~~~~~
-
-## Run
-
-+ `:SyntasticCheck liquid` runs *liquidhaskell* on the current buffer.
-
-## View
-
-1. **Warnings** will be displayed in the usual error buffer.
-
-2. **Inferred Types** will be displayed when `<F1>` is pressed over an identifier.
+See the original repository for more documentation.
 
 
-## Configure 
+## Dependencies
 
-You can configure the checker in various ways in your `.vimrc`.
+- [scrooloose/syntastic](https://github.com/scrooloose/syntastic)
+- [panagosg7/vim-annotations](https://github.com/panagosg7/vim-annotations)
+- [Liquid Haskell](https://github.com/ucsd-progsys/liquidhaskell), obviously
 
-+ To run after **each save**, for *all* Haskell files, add:
+Add `'liquid'` to `g:syntastic_haskell_checkers`, e.g.
 
-~~~~~
-let g:syntastic_mode_map = { 'mode': 'active' }
-let g:syntastic_haskell_checkers = ['hdevtools', 'hlint', 'liquid']
-~~~~~
-
-+ To pass extra options to liquidhaskell add: 
-
-~~~~~
-let g:syntastic_haskell_liquid_args = "--diff"
-~~~~~
-
+```
+let g:syntastic_haskell_checkers = ['ghc-mod', 'liquid', 'hlint']
+```
